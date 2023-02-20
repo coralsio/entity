@@ -1,0 +1,23 @@
+{
+    "code": "corals-entity",
+    "name": "Entity Module",
+    "author": "Corals",
+    "type": "module",
+    "description": "Starter Package",
+    "namespace": "Corals\\Modules\\Entity\\",
+    "provider": "EntityServiceProvider",
+    "version": "2.0",
+    "load_order": "0",
+    "folder": "Entity",
+    "autoload": "psr-4",
+    "icon": "fa fa-clone",
+    "require": {
+        "corals-foundation": "^6.0",
+        "corals-settings": "^5.0",
+        "corals-utility": "^4.0",
+        "corals-utility-rating": "1.0",
+        "corals-utility-wishlist":"1.0",
+        "corals-utility-category": "1.0",
+        "corals-utility-tag": "1.0"
+    }
+}
