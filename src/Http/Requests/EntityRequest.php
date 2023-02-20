@@ -49,16 +49,16 @@ class EntityRequest extends BaseRequest
             foreach ($this->fields as $field) {
                 if (data_get($field, 'field_config.is_identifier')) {
                     $hasIdentifier = true;
+
                     break;
                 }
             }
 
-            if (!$hasIdentifier) {
+            if (! $hasIdentifier) {
                 $rules['identifier'] = 'required';
             }
 
             if (in_array($this->get('type'), ['select', 'radio', 'multi_values'])) {
-
                 if ($this->get('options_setting')['source'] == "static") {
                     foreach ($this->get('options', []) as $id => $item) {
                         $rules = array_merge($rules, [
@@ -66,14 +66,12 @@ class EntityRequest extends BaseRequest
                             "options.{$id}.value" => 'required',
                         ]);
                     }
-                } else if ($this->get('options_setting')['source'] == "database") {
+                } elseif ($this->get('options_setting')['source'] == "database") {
                     $rules = array_merge($rules, [
                         "options_setting.source_model" => 'required',
                         "options_setting.source_model_column" => 'required',
                     ]);
-
                 }
-
             }
 
             foreach ($this->get('custom_attributes', []) as $id => $item) {
@@ -123,7 +121,7 @@ class EntityRequest extends BaseRequest
             'fields.*.label' => 'Label',
             'fields.*.status' => 'Status',
             'fields.*.options_setting.source' => 'Source',
-            'fields.*.field_config.is_identifier' => 'identifier'
+            'fields.*.field_config.is_identifier' => 'identifier',
         ]);
 
         return $attributes;
@@ -132,7 +130,7 @@ class EntityRequest extends BaseRequest
     public function messages()
     {
         return [
-            'identifier.required' => trans('validation.at_least_one', ['attribute' => 'identifier'])
+            'identifier.required' => trans('validation.at_least_one', ['attribute' => 'identifier']),
         ];
     }
 
@@ -148,7 +146,7 @@ class EntityRequest extends BaseRequest
 
             if (in_array(data_get($field, 'name'), $names)) {
                 $specialValidation = array_merge($specialValidation, [
-                    "fields.$index.name" => trans('validation.unique', ['attribute' => 'name'])
+                    "fields.$index.name" => trans('validation.unique', ['attribute' => 'name']),
                 ]);
             }
         }
@@ -173,7 +171,7 @@ class EntityRequest extends BaseRequest
             $data['wishlistable'] = Arr::get($data, 'wishlistable', false);
 
             foreach (data_get($data, 'fields', []) as $index => $field) {
-                if (!empty($field['name'])) {
+                if (! empty($field['name'])) {
                     Arr::set($data, "fields.$index.name", Str::slug($field['name'], '_'));
                 }
             }

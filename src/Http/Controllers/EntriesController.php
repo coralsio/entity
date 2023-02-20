@@ -37,7 +37,7 @@ class EntriesController extends BaseController
     public function index(EntryRequest $request, Entity $entity, EntriesDataTable $dataTable)
     {
         $this->setViewSharedData([
-            'title' => trans('Entity::module.entry.entry_title', ['entity' => $entity->name_plural])
+            'title' => trans('Entity::module.entry.entry_title', ['entity' => $entity->name_plural]),
         ]);
 
         return $dataTable->render('Entity::entries.index', compact('entity'));
@@ -50,11 +50,11 @@ class EntriesController extends BaseController
      */
     public function create(EntryRequest $request, Entity $entity)
     {
-        $entry = new Entry;
+        $entry = new Entry();
 
         $this->setViewSharedData([
             'title' => trans('Entity::module.entry.entry_title', ['entity' => $entity->name_plural]),
-            'title_singular' => trans('Corals::labels.create_title', ['title' => $entity->name_singular])
+            'title_singular' => trans('Corals::labels.create_title', ['title' => $entity->name_singular]),
         ]);
 
         return view('Entity::entries.create_edit')->with(compact('entry', 'entity'));
@@ -89,7 +89,7 @@ class EntriesController extends BaseController
         $this->setViewSharedData([
             'title' => trans('Entity::module.entry.entry_title', ['entity' => $entity->name_plural]),
             'title_singular' => trans('Corals::labels.show_title', ['title' => $entry->getIdentifier()]),
-            'showModel' => $entry
+            'showModel' => $entry,
         ]);
 
         return view('Entity::entries.show')->with(compact('entry', 'entity'));
@@ -105,7 +105,7 @@ class EntriesController extends BaseController
     {
         $this->setViewSharedData([
             'title' => trans('Entity::module.entry.entry_title', ['entity' => $entity->name_plural]),
-            'title_singular' => trans('Corals::labels.update_title', ['title' => $entry->getIdentifier()])
+            'title_singular' => trans('Corals::labels.update_title', ['title' => $entry->getIdentifier()]),
         ]);
 
         return view('Entity::entries.create_edit')->with(compact('entity', 'entry'));
@@ -143,7 +143,7 @@ class EntriesController extends BaseController
 
             $message = [
                 'level' => 'success',
-                'message' => trans('Corals::messages.success.deleted', ['item' => $entry->getIdentifier()])
+                'message' => trans('Corals::messages.success.deleted', ['item' => $entry->getIdentifier()]),
             ];
         } catch (\Exception $exception) {
             log_exception($exception, Entry::class, 'destroy');

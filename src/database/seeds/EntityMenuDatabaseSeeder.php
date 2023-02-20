@@ -23,11 +23,12 @@ class EntityMenuDatabaseSeeder extends Seeder
             'icon' => 'fa fa-globe',
             'target' => null,
             'roles' => '["1"]',
-            'order' => 0
+            'order' => 0,
         ]);
 
         // seed children menu
-        \DB::table('menus')->insert([
+        \DB::table('menus')->insert(
+            [
                 [
                     'parent_id' => $entity_menu_id,
                     'key' => null,
@@ -38,7 +39,7 @@ class EntityMenuDatabaseSeeder extends Seeder
                     'icon' => 'fa fa-cube',
                     'target' => null,
                     'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
             ]
         );

@@ -36,7 +36,7 @@ class EntryRequest extends BaseRequest
 
             $rules = array_merge($rules, $this->getCustomFieldsRules($entity->fields));
         }
+
         return $rules;
     }
-
 }

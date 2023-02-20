@@ -6,7 +6,6 @@ use Corals\Modules\Entity\Models\Entity;
 
 class EntityObserver
 {
-
     /**
      * @param Entity $bar
      */

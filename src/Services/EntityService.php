@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Entity\Services;
 
-
 use Corals\Foundation\Services\BaseServiceClass;
 use Corals\Menu\Models\Menu;
 
@@ -28,7 +27,7 @@ class EntityService extends BaseServiceClass
                 'icon' => 'fa fa-cube',
                 'target' => null,
                 'roles' => ['1'],
-                'order' => 0
+                'order' => 0,
             ]);
         }
     }

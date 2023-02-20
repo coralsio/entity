@@ -35,7 +35,7 @@ class EntityTransformer extends BaseTransformer
             'category_parent' => formatArrayAsLabels($entity->categories()->pluck('name')->toArray()),
             'created_at' => format_date($entity->created_at),
             'updated_at' => format_date($entity->updated_at),
-            'action' => $this->actions($entity)
+            'action' => $this->actions($entity),
         ];
 
         return parent::transformResponse($transformedArray);

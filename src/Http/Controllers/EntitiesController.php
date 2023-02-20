@@ -46,7 +46,7 @@ class EntitiesController extends BaseController
         $entity = new Entity();
 
         $this->setViewSharedData([
-            'title_singular' => trans('Corals::labels.create_title', ['title' => $this->title_singular])
+            'title_singular' => trans('Corals::labels.create_title', ['title' => $this->title_singular]),
         ]);
 
         return view('Entity::entities.create_edit')->with(compact('entity'));
@@ -78,7 +78,7 @@ class EntitiesController extends BaseController
     {
         $this->setViewSharedData([
             'title_singular' => trans('Corals::labels.show_title', ['title' => $entity->getIdentifier('code')]),
-            'showModel' => $entity
+            'showModel' => $entity,
         ]);
 
         return view('Entity::entities.show')->with(compact('entity'));
@@ -92,7 +92,7 @@ class EntitiesController extends BaseController
     public function edit(EntityRequest $request, Entity $entity)
     {
         $this->setViewSharedData([
-            'title_singular' => trans('Corals::labels.update_title', ['title' => $entity->getIdentifier('code')])
+            'title_singular' => trans('Corals::labels.update_title', ['title' => $entity->getIdentifier('code')]),
         ]);
 
         return view('Entity::entities.create_edit')->with(compact('entity'));
@@ -130,7 +130,7 @@ class EntitiesController extends BaseController
 
             $message = [
                 'level' => 'success',
-                'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular])
+                'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular]),
             ];
         } catch (\Exception $exception) {
             log_exception($exception, Entity::class, 'destroy');

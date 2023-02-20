@@ -23,8 +23,10 @@ Breadcrumbs::register('entity_entries', function ($breadcrumbs) {
 
     $entity = request()->route('entity');
 
-    $breadcrumbs->push(view()->shared('title'),
-        route(config('entity.models.entry.resource_route'), ['entity' => $entity->hashed_id]));
+    $breadcrumbs->push(
+        view()->shared('title'),
+        route(config('entity.models.entry.resource_route'), ['entity' => $entity->hashed_id])
+    );
 });
 
 Breadcrumbs::register('entity_entry_create_edit', function ($breadcrumbs) {

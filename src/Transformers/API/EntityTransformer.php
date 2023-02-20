@@ -21,7 +21,6 @@ class EntityTransformer extends BaseTransformer
      */
     public function transform(Entity $entity)
     {
-
         $transformedArray = [
             'id' => $entity->id,
             'code' => $entity->getIdentifier('code'),

@@ -17,7 +17,7 @@ class EntityAuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Entity::class => EntityPolicy::class,
-        Entry::class => EntryPolicy::class
+        Entry::class => EntryPolicy::class,
     ];
 
     /**

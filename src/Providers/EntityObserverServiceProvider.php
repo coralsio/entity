@@ -13,7 +13,6 @@ class EntityObserverServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         Entity::observe(EntityObserver::class);
     }
 }

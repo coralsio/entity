@@ -23,7 +23,6 @@ class EntityServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
     public function boot()
     {
         // Load view
@@ -38,7 +37,6 @@ class EntityServiceProvider extends ServiceProvider
         $this->registerMorphMaps();
         $this->registerCustomFieldsModels();
         $this->registerModulesPackages();
-
     }
 
     /**
@@ -70,7 +68,7 @@ class EntityServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'Entity' => Entity::class,
-            'Entry' => Entry::class
+            'Entry' => Entry::class,
         ]);
     }
 

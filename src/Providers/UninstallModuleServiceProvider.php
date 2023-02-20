@@ -9,7 +9,7 @@ use Corals\Modules\Entity\database\seeds\EntityDatabaseSeeder;
 class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
 {
     protected $migrations = [
-        EntityTables::class
+        EntityTables::class,
     ];
 
     protected function providerBooted()
