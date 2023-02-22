@@ -30,7 +30,6 @@ class EntityServiceProvider extends BasePackageServiceProvider
      *
      * @return void
      */
-
     public function bootPackage()
     {
         // Load view
@@ -44,7 +43,6 @@ class EntityServiceProvider extends BasePackageServiceProvider
 
         $this->registerMorphMaps();
         $this->registerCustomFieldsModels();
-
     }
 
     /**
