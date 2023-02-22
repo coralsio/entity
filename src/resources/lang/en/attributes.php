@@ -11,13 +11,13 @@ return [
         'name_singular' => 'Name singular',
         'name_plural' => 'Name plural',
         'reviewable' => 'Reviewable',
-        'wishlistable' => 'Wishlistable'
+        'wishlistable' => 'Wishlistable',
     ],
     'entry' => [
         'entity_code' => 'Entity code',
         'tags' => 'Tags',
         'categories' => 'Categories',
         'reviews' => 'Reviews',
-        'wishlists' => 'Wishlists'
-    ]
+        'wishlists' => 'Wishlists',
+    ],
 ];

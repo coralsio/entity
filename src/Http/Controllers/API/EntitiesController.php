@@ -10,7 +10,6 @@ use Corals\Modules\Entity\Services\EntityService;
 use Corals\Modules\Entity\Transformers\API\EntityPresenter;
 use Illuminate\Http\Request;
 
-
 class EntitiesController extends APIBaseController
 {
     protected $entityService;
@@ -43,6 +42,7 @@ class EntitiesController extends APIBaseController
     {
         try {
             $entity = $this->entityService->store($request, Entity::class);
+
             return apiResponse($this->entityService->getModelDetails(), trans('Corals::messages.success.created', ['item' => $entity->getIdentifier('code')]));
         } catch (\Exception $exception) {
             return apiExceptionResponse($exception);

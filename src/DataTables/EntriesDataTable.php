@@ -87,7 +87,9 @@ class EntriesDataTable extends BaseDataTable
 
         $jsonSortableColumns = EntityFacade::getDisplayableColumnsForDatatable($this->request->route('entity'));
 
-        if (!in_array($columnName, array_keys($jsonSortableColumns))) return;
+        if (! in_array($columnName, array_keys($jsonSortableColumns))) {
+            return;
+        }
 
         $query->addSelect(\DB::raw(sprintf("json_extract(`%s`,'$.%s') as %s", $jsonColumnName, $columnName, $columnName)));
     }

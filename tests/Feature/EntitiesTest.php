@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Corals\Modules\Entity\Models\Entity;
-use Corals\Modules\Entity\Models\Entry;
 use Corals\User\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +29,9 @@ class EntitiesTest extends TestCase
         $types = get_array_key_translation(config("settings.models.custom_field_setting.supported_types"));
         $type = array_rand($types);
         $code = uniqid('entity-');
-        $response = $this->post('entity/entities', [
+        $response = $this->post(
+            'entity/entities',
+            [
                 'code' => $code,
                 'name_singular' => 'entity singular',
                 'name_plural' => 'entities',
@@ -42,8 +43,8 @@ class EntitiesTest extends TestCase
                         "field_config" => [
                             "is_identifier" => "on",
                         ],
-                        "label" => 'field'
-                    ]
+                        "label" => 'field',
+                    ],
                 ],
             ]
         );
@@ -99,8 +100,8 @@ class EntitiesTest extends TestCase
                         "field_config" => [
                             "is_identifier" => "on",
                         ],
-                        "label" => $this->entity->fields[0]['label']
-                    ]
+                        "label" => $this->entity->fields[0]['label'],
+                    ],
                 ],
             ]);
 
@@ -108,7 +109,7 @@ class EntitiesTest extends TestCase
             $this->assertDatabaseHas('entity_entities', [
                 'code' => $this->entity->code,
                 'name_singular' => 'entity',
-                'name_plural' => $this->entity->name_plural
+                'name_plural' => $this->entity->name_plural,
             ]);
         }
 
@@ -128,7 +129,7 @@ class EntitiesTest extends TestCase
             $this->assertDatabaseMissing('entity_entities', [
                 'code' => $this->entity->code,
                 'name_singular' => $this->entity->name_singular,
-                'name_plural' => $this->entity->name_plural
+                'name_plural' => $this->entity->name_plural,
             ]);
         }
         $this->assertTrue(true);

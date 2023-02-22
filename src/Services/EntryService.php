@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Entity\Services;
 
-
 use Corals\Foundation\Services\BaseServiceClass;
 use Corals\Modules\Utility\Category\Facades\Category;
 use Illuminate\Support\Arr;
@@ -26,13 +25,13 @@ class EntryService extends BaseServiceClass
         $values = $request->get('properties');
 
         $entry = $entity->entries()->create([
-            'values' => $values
+            'values' => $values,
         ]);
 
         $this->handleUploadFiles($entry, $values);
 
         $entry->update([
-            'values' => $values
+            'values' => $values,
         ]);
 
         $this->model = $entry;
@@ -67,7 +66,7 @@ class EntryService extends BaseServiceClass
         $this->handleUploadFiles($entry, $values);
 
         $entry->update([
-            'values' => $values
+            'values' => $values,
         ]);
 
         $this->model = $entry;
@@ -83,7 +82,6 @@ class EntryService extends BaseServiceClass
     {
         foreach (request()->files as $files) {
             foreach ($files as $propName => $file) {
-
                 if ($oldMediaId = $entry->getProperty($propName, null, null, 'values')) {
                     Media::query()->where('id', $oldMediaId)->delete();
                 }

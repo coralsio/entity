@@ -19,6 +19,7 @@ class EntityPolicy extends BasePolicy
         if ($user->can('Entity::entity.view')) {
             return true;
         }
+
         return false;
     }
 
@@ -41,6 +42,7 @@ class EntityPolicy extends BasePolicy
         if ($user->can('Entity::entity.update')) {
             return true;
         }
+
         return false;
     }
 
@@ -54,7 +56,7 @@ class EntityPolicy extends BasePolicy
         if ($user->can('Entity::entity.delete')) {
             return true;
         }
+
         return false;
     }
-
 }

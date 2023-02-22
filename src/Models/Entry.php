@@ -16,9 +16,14 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Entry extends BaseModel implements HasMedia
 {
-    use PresentableTrait, LogsActivity, InteractsWithMedia,
-        HasTags, ModelHasCategory, Indexable,
-        Wishlistable, ReviewRateable;
+    use PresentableTrait;
+    use LogsActivity;
+    use InteractsWithMedia;
+    use HasTags;
+    use ModelHasCategory;
+    use Indexable;
+    use Wishlistable;
+    use ReviewRateable;
 
     protected $table = 'entity_entries';
 
@@ -30,7 +35,7 @@ class Entry extends BaseModel implements HasMedia
 
     protected $casts = [
         'properties' => 'json',
-        'values' => 'json'
+        'values' => 'json',
     ];
 
     protected $guarded = ['id'];

@@ -58,7 +58,6 @@ class EntityTables extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
-
     }
 
     /**

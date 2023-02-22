@@ -29,11 +29,12 @@ class EntryTransformer extends BaseTransformer
             'tags' => formatArrayAsLabels($entry->tags->pluck('name'), 'success', '<i class="fa fa-folder-open"></i>'),
             'created_at' => format_date($entry->created_at),
             'updated_at' => format_date($entry->updated_at),
-            'action' => $this->actions($entry)
+            'action' => $this->actions($entry),
         ];
 
         return parent::transformResponse(
-            array_merge($transformedArray, EntityFacade::getDisplayableColumnsForTransformer($entity, $entry)), $entry
+            array_merge($transformedArray, EntityFacade::getDisplayableColumnsForTransformer($entity, $entry)),
+            $entry
         );
     }
 }

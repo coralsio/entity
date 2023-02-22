@@ -47,5 +47,4 @@ class EntryPolicy extends BasePolicy
     {
         return $user->can('Entity::entry.delete');
     }
-
 }

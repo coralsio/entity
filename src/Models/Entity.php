@@ -10,8 +10,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Entity extends BaseModel
 {
-    use PresentableTrait, LogsActivity,
-        ModelHasCategory, DynamicFieldsModel;
+    use PresentableTrait;
+    use LogsActivity;
+    use ModelHasCategory;
+    use DynamicFieldsModel;
 
     protected $table = 'entity_entities';
 
@@ -23,7 +25,7 @@ class Entity extends BaseModel
 
     protected $casts = [
         'properties' => 'json',
-        'fields' => 'json'
+        'fields' => 'json',
     ];
 
     protected $guarded = ['id'];

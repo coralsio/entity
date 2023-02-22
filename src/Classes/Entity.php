@@ -9,7 +9,6 @@ use Corals\Settings\Facades\CustomFields;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-
 class Entity
 {
     /**
@@ -33,16 +32,15 @@ class Entity
      */
     public function getFullTextSearchEntityFields($entity, $type): array
     {
-
         $entity = $this->normalizeEntityModel($entity);
 
         return CustomFields::getSortedFields($entity)
             ->filter(function ($field) use ($type) {
                 $fullTextAttribute = CustomFields::getAttribute($field, 'field_config.full_text_search', []) ?? [];
+
                 return array_search($type, $fullTextAttribute) !== false;
             })->toArray();
     }
-
 
     /**
      * @param $entity
@@ -50,7 +48,6 @@ class Entity
      */
     public function getDisplayableColumnsForDatatable($entity): array
     {
-
         $entity = $this->normalizeEntityModel($entity);
 
         foreach ($this->getDisplayableEntityFields($entity) as $column) {
@@ -60,7 +57,7 @@ class Entity
                 'title' => CustomFields::getAttribute($column, 'label', CustomFields::getAttribute($column, 'name')),
                 'orderable' => $isOrderable,
                 'searchable' => CustomFields::getAttribute($column, 'field_config.searchable', false),
-                'class' => CustomFields::getAttribute($column, 'field_config.grid_class', '')
+                'class' => CustomFields::getAttribute($column, 'field_config.grid_class', ''),
             ];
         }
 
@@ -82,7 +79,7 @@ class Entity
             $type = CustomFields::getAttribute($column, 'type');
             $fieldValues[$name] = $this->castValue($type, $value, $this->getFieldSetting($entity, $name));
 
-            if (CustomFields::getAttribute($column, 'field_config.is_identifier', false) && !is_api_request()) {
+            if (CustomFields::getAttribute($column, 'field_config.is_identifier', false) && ! is_api_request()) {
                 $fieldValues[$name] = sprintf("<a href='%s'>%s</a>", $entry->getShowURL(), $fieldValues[$name]);
             }
         }
@@ -120,7 +117,7 @@ class Entity
                 'is_json' => true,
                 'condition' => 'like',
                 'active' => true,
-                'json_column' => 'values'
+                'json_column' => 'values',
             ];
         }
 
@@ -133,7 +130,7 @@ class Entity
             return $value;
         }
 
-        if (!$value) {
+        if (! $value) {
             return '-';
         }
 
@@ -144,14 +141,20 @@ class Entity
             case 'bool':
             case 'checkbox':
                 $value = yesNoFormatter($value);
+
                 break;
             case 'date':
                 $value = format_date($value);
+
                 break;
             case 'file':
                 $media = Media::find($value);
-                $value = sprintf("<a href='%s' target='_blank'><i class='fa fa-external-link'></i> %s</a>",
-                    $media->getFullUrl(), $media->name);
+                $value = sprintf(
+                    "<a href='%s' target='_blank'><i class='fa fa-external-link'></i> %s</a>",
+                    $media->getFullUrl(),
+                    $media->name
+                );
+
                 break;
             case 'multi_values':
             case 'select':
@@ -165,8 +168,8 @@ class Entity
                         $result[] = $options->where('key', $v)->first()['value'];
                     }
                     $value = join(',', $result);
-                    break;
 
+                    break;
                 } elseif (data_get($fieldSetting, 'options_setting')) {
                     $optionsSetting = collect($fieldSetting->options_setting);
 
@@ -175,11 +178,13 @@ class Entity
 
                         $column = $optionsSetting['source_model_column'];
 
-                        $value = with(new $model)->where('id', $value)->first()->{$column};
+                        $value = with(new $model())->where('id', $value)->first()->{$column};
+
                         break;
                     }
                 }
 
+                // no break
             case 'color':
                 $value = "<div style=\"display:inline-block;background-color:{$value};height: 100%;width: 25px;\">&nbsp;</div>";
 
@@ -199,7 +204,7 @@ class Entity
     {
         $entity = $this->normalizeEntityModel($entity);
 
-        if (!$entry->values) {
+        if (! $entry->values) {
             return '';
         }
 
@@ -217,10 +222,7 @@ class Entity
         }
 
         if ($category = $entity->categories()->first()) {
-
-
             foreach ($entry->categories as $category) {
-
                 $categoryAttributesValues = [];
 
                 foreach ($category->categoryAttributes as $attribute) {
@@ -230,15 +232,19 @@ class Entity
                 $categoriesLabels [] = sprintf("%s %s", formatArrayAsLabels([$category->name], 'success', '<i class="fa fa-folder-open"></i>'), join("", $categoryAttributesValues));
             }
 
-            $rows .= sprintf("<tr><td>%s</td><td>%s </td></tr>", __('Entity::attributes.entry.categories'),
-                join("<br>", $categoriesLabels ?? []));
-
-
+            $rows .= sprintf(
+                "<tr><td>%s</td><td>%s </td></tr>",
+                __('Entity::attributes.entry.categories'),
+                join("<br>", $categoriesLabels ?? [])
+            );
         }
 
         if ($entity->has_tags) {
-            $rows .= sprintf("<tr><td>%s</td><td>%s</td></tr>", __('Entity::attributes.entry.tags'),
-                $entry->present('tags'));
+            $rows .= sprintf(
+                "<tr><td>%s</td><td>%s</td></tr>",
+                __('Entity::attributes.entry.tags'),
+                $entry->present('tags')
+            );
         }
 
         return sprintf("<div class='table-responsive entry-table'>
@@ -253,6 +259,7 @@ class Entity
     protected function getFieldSetting($entity, $field): object
     {
         $entity = $this->normalizeEntityModel($entity);
+
         return (object)collect($entity->fields)->where('name', $field)->first();
     }
 
@@ -285,11 +292,10 @@ class Entity
             $model = EntityModel::find($model);
         }
 
-        if (!$model) {
+        if (! $model) {
             $model = EntityModel::findByHash($model);
         }
 
         return $model;
     }
-
 }

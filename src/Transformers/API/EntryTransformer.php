@@ -25,7 +25,7 @@ class EntryTransformer extends BaseTransformer
         foreach ($entry->getMedia($entry->galleryMediaCollection) as $media) {
             $gallery[] = [
                 'id' => $media->id,
-                'url' => $media->getFullUrl()
+                'url' => $media->getFullUrl(),
             ];
         }
 
@@ -40,7 +40,8 @@ class EntryTransformer extends BaseTransformer
         ];
 
         return parent::transformResponse(
-            array_merge($transformedArray, EntityFacade::getDisplayableColumnsForTransformer($entity, $entry)), $entry
+            array_merge($transformedArray, EntityFacade::getDisplayableColumnsForTransformer($entity, $entry)),
+            $entry
         );
     }
 }

@@ -12,23 +12,23 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/entries', 'replace' => ['return $object->getShowUrl();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Entity::module.entry.title');"]
+                        'replace' => ["return trans('Entity::module.entry.title');"],
                     ],
-                    'data' => []
+                    'data' => [],
                 ],
                 'createEntry' => [
                     'class' => 'btn btn-success btn-sm',
                     'href_pattern' => [
                         'pattern' => '[arg]/entries/create',
-                        'replace' => ['return $object->getShowUrl();']
+                        'replace' => ['return $object->getShowUrl();'],
                     ],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return  trans('Corals::labels.create') .' ' . trans('Entity::module.entry.title_singular');"]
+                        'replace' => ["return  trans('Corals::labels.create') .' ' . trans('Entity::module.entry.title_singular');"],
                     ],
-                    'data' => []
+                    'data' => [],
                 ],
-            ]
+            ],
         ],
 
         'entry' => [
@@ -38,5 +38,5 @@ return [
             'relation' => 'entry',
 
         ],
-    ]
+    ],
 ];

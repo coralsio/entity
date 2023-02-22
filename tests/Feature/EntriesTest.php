@@ -31,7 +31,9 @@ class EntriesTest extends TestCase
         $types = get_array_key_translation(config("settings.models.custom_field_setting.supported_types"));
         $type = array_rand($types);
         $code = uniqid('entity-');
-        $response = $this->post('entity/entities', [
+        $response = $this->post(
+            'entity/entities',
+            [
                 'code' => $code,
                 'name_singular' => 'entity singular',
                 'name_plural' => 'entities',
@@ -43,8 +45,8 @@ class EntriesTest extends TestCase
                         "field_config" => [
                             "is_identifier" => "on",
                         ],
-                        "label" => 'field'
-                    ]
+                        "label" => 'field',
+                    ],
                 ],
             ]
         );
@@ -61,18 +63,19 @@ class EntriesTest extends TestCase
         ]);
     }
 
-    public function test_entries_store(){
+    public function test_entries_store()
+    {
         $this->test_entities_store();
 
         if ($this->entity) {
-            $response = $this->post('entity/entities/' . $this->entity->hashed_id.'/entries',[
+            $response = $this->post('entity/entities/' . $this->entity->hashed_id.'/entries', [
                 'properties' => [
                     $this->entity->fields[0]['name'] => 'entry',
-            ]
+            ],
             ]);
 
-            $this->entry=Entry::query()->where('entity_id',$this->entity->id)->first();
-            
+            $this->entry = Entry::query()->where('entity_id', $this->entity->id)->first();
+
             $response->assertDontSee('The given data was invalid')
                 ->assertRedirect('entity/entities/' . $this->entity->hashed_id.'/entries');
 
@@ -93,8 +96,9 @@ class EntriesTest extends TestCase
         }
         $this->assertTrue(true);
     }
-    
-    public function test_entries_edit(){
+
+    public function test_entries_edit()
+    {
         $this->test_entries_store();
 
         if ($this->entry) {
@@ -105,24 +109,25 @@ class EntriesTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function test_entries_update(){
+    public function test_entries_update()
+    {
         $this->test_entries_store();
 
         if ($this->entry) {
-            $response = $this->put('entity/entities/' . $this->entity->hashed_id.'/entries/'.$this->entry->hashed_id,[
+            $response = $this->put('entity/entities/' . $this->entity->hashed_id.'/entries/'.$this->entry->hashed_id, [
                 'properties' => [
                     $this->entity->fields[0]['name'] => 'entry',
-                ]
+                ],
             ]);
 
             $response->assertDontSee('The given data was invalid')
                 ->assertRedirect('entity/entities/' . $this->entity->hashed_id.'/entries');
-            
         }
         $this->assertTrue(true);
     }
 
-    public function test_entries_delete(){
+    public function test_entries_delete()
+    {
         $this->test_entries_store();
 
         if ($this->entry) {
@@ -130,7 +135,6 @@ class EntriesTest extends TestCase
 
             $this->isSoftDeletableModel(Entry::class);
             $response->assertStatus(200)->assertSeeText('entry has been deleted successfully.');
-
         }
         $this->assertTrue(true);
     }

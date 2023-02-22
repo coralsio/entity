@@ -58,7 +58,7 @@ class EntitiesDataTable extends BaseDataTable
                 'class' => 'col-md-2',
                 'type' => 'text',
                 'condition' => 'like',
-                'active' => true
+                'active' => true,
             ],
 
             'name_plural' => [
@@ -66,14 +66,14 @@ class EntitiesDataTable extends BaseDataTable
                 'class' => 'col-md-2',
                 'type' => 'text',
                 'condition' => 'like',
-                'active' => true
+                'active' => true,
             ],
             'name_singular' => [
                 'title' => trans('Entity::attributes.entity.name_singular'),
                 'class' => 'col-md-2',
                 'type' => 'text',
                 'condition' => 'like',
-                'active' => true
+                'active' => true,
             ],
         ];
     }

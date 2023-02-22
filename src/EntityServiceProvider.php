@@ -52,7 +52,7 @@ class EntityServiceProvider extends BasePackageServiceProvider
      *
      * @return void
      */
-    public function registerPackage()
+    public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/entity.php', 'entity');
 
@@ -76,7 +76,7 @@ class EntityServiceProvider extends BasePackageServiceProvider
     {
         Relation::morphMap([
             'Entity' => Entity::class,
-            'Entry' => Entry::class
+            'Entry' => Entry::class,
         ]);
     }
 

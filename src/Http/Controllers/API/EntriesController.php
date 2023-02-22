@@ -11,7 +11,6 @@ use Corals\Modules\Entity\Services\EntryService;
 use Corals\Modules\Entity\Transformers\API\EntryPresenter;
 use Illuminate\Http\Request;
 
-
 class EntriesController extends APIBaseController
 {
     protected $entryService;
@@ -22,7 +21,7 @@ class EntriesController extends APIBaseController
         $this->entryService->setPresenter(new EntryPresenter());
 
         $this->corals_middleware_except = array_merge($this->corals_middleware_except, [
-            'index', 'show'
+            'index', 'show',
         ]);
 
         parent::__construct();
@@ -35,7 +34,6 @@ class EntriesController extends APIBaseController
      */
     public function index(Request $request, EntriesDataTable $dataTable)
     {
-
         $entries = $dataTable->query(new Entry());
 
         return $this->entryService->index($entries, $dataTable);
@@ -50,6 +48,7 @@ class EntriesController extends APIBaseController
     {
         try {
             $entry = $this->entryService->store($request, Entry::class, ['entity' => $entity]);
+
             return apiResponse($this->entryService->getModelDetails(), trans('Corals::messages.success.created', ['item' => $entry->getIdentifier()]));
         } catch (\Exception $exception) {
             return apiExceptionResponse($exception);

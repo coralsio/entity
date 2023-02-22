@@ -11,7 +11,7 @@ class InstallModuleServiceProvider extends BaseInstallModuleServiceProvider
     protected $module_public_path = __DIR__ . '/../public';
 
     protected $migrations = [
-        EntityTables::class
+        EntityTables::class,
     ];
 
     protected function providerBooted()
