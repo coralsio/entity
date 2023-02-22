@@ -2,6 +2,7 @@
 
 namespace Corals\Modules\Entity;
 
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 use Corals\Modules\Entity\Facades\EntityFacade;
 use Corals\Modules\Entity\Models\Entity;
 use Corals\Modules\Entity\Models\Entry;
@@ -12,11 +13,17 @@ use Corals\Settings\Facades\Modules;
 use Corals\Settings\Facades\Settings;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
 
-class EntityServiceProvider extends ServiceProvider
+class EntityServiceProvider extends BasePackageServiceProvider
 {
+    /**
+     * @var
+     */
     protected $defer = true;
+    /**
+     * @var
+     */
+    protected $packageCode = 'corals-entity';
 
     /**
      * Bootstrap the application events.
@@ -24,7 +31,7 @@ class EntityServiceProvider extends ServiceProvider
      * @return void
      */
 
-    public function boot()
+    public function bootPackage()
     {
         // Load view
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Entity');
@@ -37,7 +44,6 @@ class EntityServiceProvider extends ServiceProvider
 
         $this->registerMorphMaps();
         $this->registerCustomFieldsModels();
-        $this->registerModulesPackages();
 
     }
 
@@ -46,7 +52,7 @@ class EntityServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function registerPackage()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/entity.php', 'entity');
 
@@ -74,7 +80,7 @@ class EntityServiceProvider extends ServiceProvider
         ]);
     }
 
-    protected function registerModulesPackages()
+    public function registerModulesPackages()
     {
         Modules::addModulesPackages('corals/entity');
     }
