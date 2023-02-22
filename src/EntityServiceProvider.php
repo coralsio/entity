@@ -52,7 +52,7 @@ class EntityServiceProvider extends BasePackageServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function registerPackage()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/entity.php', 'entity');
 
