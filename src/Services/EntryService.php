@@ -3,7 +3,7 @@
 namespace Corals\Modules\Entity\Services;
 
 use Corals\Foundation\Services\BaseServiceClass;
-use Corals\Modules\Utility\Category\Facades\Category;
+use Corals\Utility\Category\Facades\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;

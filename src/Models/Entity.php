@@ -4,7 +4,7 @@ namespace Corals\Modules\Entity\Models;
 
 use Corals\Foundation\Models\BaseModel;
 use Corals\Foundation\Transformers\PresentableTrait;
-use Corals\Modules\Utility\Category\Traits\ModelHasCategory;
+use Corals\Utility\Category\Traits\ModelHasCategory;
 use Corals\Settings\Traits\DynamicFieldsModel;
 use Spatie\Activitylog\Traits\LogsActivity;
 

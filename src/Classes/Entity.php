@@ -4,7 +4,7 @@ namespace Corals\Modules\Entity\Classes;
 
 use Corals\Modules\Entity\Models\Entity as EntityModel;
 use Corals\Modules\Entity\Models\Entry;
-use Corals\Modules\Utility\Category\Facades\Category;
+use Corals\Utility\Category\Facades\Category;
 use Corals\Settings\Facades\CustomFields;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;

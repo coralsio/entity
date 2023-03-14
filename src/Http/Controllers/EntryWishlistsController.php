@@ -3,7 +3,7 @@
 namespace Corals\Modules\Entity\Http\Controllers;
 
 use Corals\Modules\Entity\Models\Entry;
-use Corals\Modules\Utility\Wishlist\Http\Controllers\WishlistBaseController;
+use Corals\Utility\Wishlist\Http\Controllers\WishlistBaseController;
 
 class EntryWishlistsController extends WishlistBaseController
 {
