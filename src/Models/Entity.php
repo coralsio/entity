@@ -4,8 +4,8 @@ namespace Corals\Modules\Entity\Models;
 
 use Corals\Foundation\Models\BaseModel;
 use Corals\Foundation\Transformers\PresentableTrait;
-use Corals\Utility\Category\Traits\ModelHasCategory;
 use Corals\Settings\Traits\DynamicFieldsModel;
+use Corals\Utility\Category\Traits\ModelHasCategory;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Entity extends BaseModel
