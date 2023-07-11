@@ -67,10 +67,10 @@ below shows the options available field definition:
 <img src="https://www.laraship.com/wp-content/uploads/2020/10/dropdown_static-300x211.png" alt="" width="300" height="211"></p>  
 <p>&nbsp;</p>
 
-- Default value: initial value to be populated on the field.
-
-- validation rules: you can have unlimited rules for example required|numeric|date| …., available options can be found in laravel documentation 
-  https://laravel.com/docs/7.x/validation#available-validation-rules
+<ul>
+<li><strong>Default</strong> value: initial value to be populated on the field.</li>
+<li><strong>validation rules</strong>: you can have unlimited rules for example required|numeric|date| …., available options can be found in laravel documentation https://laravel.com/docs/7.x/validation#available-validation-rules</li>
+</ul>
 
 <p>&nbsp;</p>
 <p><img src="https://www.laraship.com/wp-content/uploads/2020/10/entity_fields-1024x335.png" alt="" width="1024" height="335"></p>
