@@ -4,6 +4,13 @@ Laravel Entity Builder is a revolutionary way to create objects on the fly with 
 
 <p><img src="https://www.laraship.com/wp-content/uploads/2020/10/laravel_entity_creator--770x1024.png" alt="" width="700"></p>
 
+### Articles
+- [Entity Initial Setup](#entity-initial-setup)
+
+- [Entity Fields](#entity-fields)
+
+<p>&nbsp;</p>
+
 ## Installation
 
 You can install the package via composer:
