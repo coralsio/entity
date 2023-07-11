@@ -94,5 +94,5 @@ below shows the options available field definition:
 - <strong>Grid Class</strong>: this will help you in defining field size in crud and view you can see available options from bootstrap 
   https://www.w3schools.com/bootstrap4/bootstrap_grid_basic.asp.
 
--- Order: the display order of the field in the listing table.
+- <strong>Order</strong>: the display order of the field in the listing table.
   
