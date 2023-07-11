@@ -24,3 +24,30 @@ composer require corals/entity
 ```bash
 vendor/bin/phpunit vendor/corals/entity/tests 
 ```
+
+## Entity Initial Setup
+- To define Entity you’re required to set the following items
+
+1.<strong>Code</strong>: for internal use, use a lower case with no space
+
+2.<strong>Name Singular</strong>: the display name of the Entity and referred with a single item
+
+3.<strong>Name Plural</strong>: the plural reference of the displayed item.
+
+4.<strong>Categories Parent</strong>: If you want to assign the entity entries to categories, a category dropdown will be available at Entity entry creation, Categories are managed under the Laraship utility module, only parent categories will show.
+
+5.<strong>Has Tags</strong>: check this if you want to have the “tags” field for the entity where the entry can be assigned to different tags.
+
+6.<strong>Has Gallery<strong>: Check this if you want to upload media to the Entry
+
+<p>&nbsp;</p>
+
+<p><img src="https://www.laraship.com/wp-content/uploads/2020/10/entity-definition-1024x98.png" alt=""></p>
+
+<p>&nbsp;</p>
+
+## Entity Fields
+You can define an unlimited number of fields for each Entity, there is over 10 field types can be selected
+<p>&nbsp;</p>
+<p><img src="https://www.laraship.com/wp-content/uploads/2020/10/laravel_entity_fields_type-300x165.png" alt="" width="300" height="165" ></p>
+<p>&nbsp;</p>
