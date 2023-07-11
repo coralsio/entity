@@ -13,18 +13,18 @@ class EntitySettingsDatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        \DB::table('settings')->insert([
-//            [
-//                'code' => 'foo_setting',
-//                'type' => 'TEXT',
-//                'category' => 'Entity',
-//                'label' => 'Foo setting',
-//                'value' => 'foo',
-//                'editable' => 1,
-//                'hidden' => 0,
-//                'created_at' => Carbon::now(),
-//                'updated_at' => Carbon::now(),
-//            ]
-//        ]);
+        //        \DB::table('settings')->insert([
+        //            [
+        //                'code' => 'foo_setting',
+        //                'type' => 'TEXT',
+        //                'category' => 'Entity',
+        //                'label' => 'Foo setting',
+        //                'value' => 'foo',
+        //                'editable' => 1,
+        //                'hidden' => 0,
+        //                'created_at' => Carbon::now(),
+        //                'updated_at' => Carbon::now(),
+        //            ]
+        //        ]);
     }
 }

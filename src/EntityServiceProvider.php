@@ -39,7 +39,7 @@ class EntityServiceProvider extends BasePackageServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'Entity');
 
         // Load migrations
-//        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        //        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         $this->registerMorphMaps();
         $this->registerCustomFieldsModels();
