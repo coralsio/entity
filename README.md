@@ -8,7 +8,7 @@ Laravel Entity Builder is a revolutionary way to create objects on the fly with 
 - [Entity Initial Setup](#entity-initial-setup)
 
 - [Entity Fields](#entity-fields)
-
+([https://www.laraship.com/docs/laraship/slider-configuration/]
 <p>&nbsp;</p>
 
 ## Installation
@@ -95,6 +95,15 @@ below shows the options available field definition:
   https://www.w3schools.com/bootstrap4/bootstrap_grid_basic.asp.
 
 - <strong>Order</strong>: the display order of the field in the listing table.
+- 
+
+## Questions & Answers
+If you faced any issue you can check our questions center, and you can post your question from the following link
+[Questions & Answers](https://www.laraship.com/laraship-questions/)  
+
+
+## Online Docs
+follow the [Online Docs](https://www.laraship.com/docs/laraship/entity-builder-module/) to see more about this module 
   
 ## Hire Us
 Looking for a professional team to build your success and start driving your business forward.
