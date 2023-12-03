@@ -27,10 +27,10 @@
         "laravel/pint": "^1.0"
     },
     "require": {
-        "corals/utility-rating": "^1.0",
-        "corals/utility-wishlist": "^1.0",
-        "corals/utility-category":"^1.0",
-        "corals/utility-tag":"^1.0"
+        "corals/utility-rating": "^10.0.0",
+        "corals/utility-wishlist": "^10.0.0",
+        "corals/utility-category":"^10.0.0",
+        "corals/utility-tag":"^10.0.0"
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
